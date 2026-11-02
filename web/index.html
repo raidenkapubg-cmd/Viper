@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Viper Terminal</title>
+  <link rel="icon" href="/favicon.ico" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/viper.css">
+</head>
+<body>
+  <div class="shell" id="shell">
+    <aside class="rail" aria-label="Main navigation">
+      <div class="rail-head">
+        <span class="brand">VIPER<i>.</i></span>
+        <button class="toggle" id="railToggle" title="Collapse sidebar  [  or  Ctrl+B" aria-label="Toggle sidebar" aria-expanded="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+            <path id="toggleA" d="M10 3 L5 8 L10 13" />
+            <path id="toggleB" d="M2 2 L2 14" />
+          </svg>
+        </button>
+      </div>
+      <ul class="nav" id="nav">
+        <li><a href="#viper" data-page="viper"><span class="code">VP</span><span class="lbl">Viper</span><span class="badge" data-badge="regime">·</span><i class="dot-c"></i></a></li>
+        <li><a href="#learn" data-page="learn"><span class="code">LT</span><span class="lbl">Learnings &amp; Teachings</span><span class="badge" data-badge="lessons">0</span><i class="dot-c"></i></a></li>
+        <li><a href="#positions" data-page="positions"><span class="code">PS</span><span class="lbl">Positions</span><span class="badge" data-badge="live">0</span><i class="dot-c"></i></a></li>
+        <li><a href="#journal" data-page="journal"><span class="code">JN</span><span class="lbl">Journal</span><span class="badge" data-badge="journal">·</span><i class="dot-c"></i></a></li>
+        <li><a href="#market" data-page="market"><span class="code">MK</span><span class="lbl">Market</span><span class="pulse" data-badge="feed"></span><i class="dot-c"></i></a></li>
+        <li><a href="#shadow" data-page="shadow"><span class="code">SH</span><span class="lbl">Shadow</span><span class="badge" data-badge="shadow">0</span><i class="dot-c"></i></a></li>
+      </ul>
+      <div class="rail-foot">
+        <div id="footEnv">—</div>
+        <div style="margin-top:6px"><button id="themeBtn" type="button">theme</button></div>
+      </div>
+    </aside>
+    <header class="head">
+      <div class="day" id="hDay">—</div>
+      <div class="clock" id="hClock">--:--:--</div>
+      <div class="synth hide" id="hSynth">SYNTHETIC FEED · STAGING</div>
+      <div class="grow"></div>
+      <div class="routes route" id="hRoutes"></div>
+      <div><span class="pulse" id="hWs"></span>&nbsp;<span class="mono" style="font-size:11px" id="hWsTxt">connecting</span></div>
+    </header>
+    <main class="main" id="main"><div id="view"></div></main>
+  </div>
+  <div class="toasts" id="toasts"></div>
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

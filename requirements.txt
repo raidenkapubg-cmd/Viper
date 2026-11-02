@@ -1,0 +1,13 @@
+# Viper runtime (Python 3.11+)
+fyers-apiv3==3.2.1          # FYERS API v3 SDK: FyersDataSocket / FyersOrderSocket
+websocket-client==1.6.1     # pinned by fyers-apiv3; Viper hooks its run_forever for IP binding
+requests>=2.31,<3
+fastapi>=0.110,<1
+uvicorn[standard]>=0.29,<1
+python-multipart>=0.0.9     # instruction uploads
+pypdf>=4.0                  # PDF instruction parsing
+pillow>=10.0
+anthropic>=2.0,<3           # optional at runtime: only used when ANTHROPIC_API_KEY is set (image/scanned-PDF rules)
+
+# Optional OCR fallback for chart screenshots without an API key:
+#   pip install pytesseract  &&  apt-get install tesseract-ocr

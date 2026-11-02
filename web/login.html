@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Viper Login</title>
+  <link rel="stylesheet" href="/css/viper.css">
+  <style>
+    body { overflow: auto; display: grid; place-items: center; min-height: 100vh; }
+    form { width: min(340px, 92vw); border-top: 2px solid var(--ink); padding-top: 14px; display: grid; gap: 12px; }
+    .brand { font-size: 22px; }
+    #err { color: var(--down); font: 12px var(--mono); min-height: 1em; }
+  </style>
+</head>
+<body>
+  <form id="f">
+    <span class="brand">VIPER<i>.</i></span>
+    <label class="fld">Terminal password<input type="password" name="password" autocomplete="current-password" autofocus required></label>
+    <button class="btn primary" type="submit">Unlock</button>
+    <div id="err"></div>
+  </form>
+  <script>
+    document.getElementById("f").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const r = await fetch("/api/login", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: new FormData(e.target).get("password") }) });
+      if (r.ok) location.href = "/"; else document.getElementById("err").textContent = "Wrong password.";
+    });
+  </script>
+</body>
+</html>

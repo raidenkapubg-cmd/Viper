@@ -1,0 +1,22 @@
+[Unit]
+Description=Viper trading terminal (FYERS v3, dual-IP)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__USER__
+WorkingDirectory=__ROOT__
+EnvironmentFile=__ROOT__/.env
+ExecStartPre=__ROOT__/scripts/start.sh --check
+ExecStart=__ROOT__/scripts/start.sh
+Restart=on-failure
+RestartSec=5
+# Give open positions' exit orders time to go out on stop.
+TimeoutStopSec=20
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target
